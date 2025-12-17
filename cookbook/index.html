@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cookbook</title>
+  <link rel="stylesheet" href="./style.css" />
+  <meta name="color-scheme" content="light dark">
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="/">← Zur Landing Page</a>
+      <div class="spacer"></div>
+      <input id="q" class="search" type="search" placeholder="Suchen (Titel, Tags, Summary) …" />
+      <button id="theme" class="btn" type="button" aria-label="Theme umschalten">Theme</button>
+    </div>
+  </header>
+
+  <main class="wrap layout">
+    <aside class="sidebar">
+      <div class="sidebar-head">
+        <h1>Cookbook</h1>
+        <p class="muted">Snippets, Patterns, Deploy-Notizen, Lösungen.</p>
+      </div>
+
+      <div id="tags" class="tags"></div>
+
+      <div class="list-head">
+        <div class="muted" id="count"></div>
+      </div>
+      <nav id="list" class="list" aria-label="Einträge"></nav>
+    </aside>
+
+    <section class="content">
+      <div class="content-head">
+        <h2 id="title">Wähle einen Eintrag</h2>
+        <div class="meta">
+          <span id="date" class="muted"></span>
+          <span id="tagline" class="muted"></span>
+          <a id="raw" class="muted" href="#" target="_blank" rel="noreferrer" style="display:none">Raw Markdown</a>
+        </div>
+      </div>
+      <article id="doc" class="doc">
+        <p class="muted">Links findest du alle Einträge. Du kannst auch Tags anklicken oder suchen.</p>
+      </article>
+    </section>
+  </main>
+
+  <!-- Markdown Renderer (CDN). Wenn du komplett offline willst, kann ich dir marked.min.js vendoren. -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="./app.js" defer></script>
+</body>
+</html>
