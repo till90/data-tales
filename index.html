@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Persönliches Portfolio: Dashboards, Datenvisualisierung, Web-Tools, kleine Games, Python/Flask-Projekte." />
+  <meta name="theme-color" content="#0b0f19" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="Portfolio – Till Müller" />
+  <meta property="og:description" content="Dashboards, Datenvisualisierung, Web-Tools, kleine Games, Python/Flask." />
+  <meta property="og:type" content="website" />
+  <!-- <meta property="og:image" content="/assets/img/og-image.png" /> -->
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <title>Portfolio – Till Müller</title>
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#" aria-label="Startseite">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-text">Till Müller</span>
+      </a>
+
+      <nav class="nav" aria-label="Hauptnavigation">
+        <a href="#projects">Projekte</a>
+        <a href="#about">Über mich</a>
+        <a href="#contact">Kontakt</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="btn btn-ghost" id="themeToggle" type="button" aria-label="Theme umschalten">
+          <span aria-hidden="true">☾</span>
+          <span class="sr-only">Theme umschalten</span>
+        </button>
+        <a class="btn btn-primary" href="#contact">Kontakt</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="kicker">Portfolio</p>
+          <h1>Ich baue datengetriebene Web-Tools, Dashboards und kleine interaktive Demos.</h1>
+          <p class="lead">
+            Fokus auf Python/Flask, saubere Visualisierung, gute UX und robuste Deployments.
+            Hier findest du ausgewählte Projekte, Demos und Experimente.
+          </p>
+
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#projects">Projekte ansehen</a>
+            <a class="btn btn-secondary" href="#about">Kurzprofil</a>
+          </div>
+
+          <ul class="meta-row" aria-label="Kurze Fakten">
+            <li><span class="dot" aria-hidden="true"></span> Python / Flask</li>
+            <li><span class="dot" aria-hidden="true"></span> Datenanalyse & Visualisierung</li>
+            <li><span class="dot" aria-hidden="true"></span> Cloud Deployments (GCP)</li>
+          </ul>
+        </div>
+
+        <div class="hero-card" role="region" aria-label="Highlights">
+          <div class="stat">
+            <div class="stat-label">Schwerpunkt</div>
+            <div class="stat-value">Data + Web</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Typische Outputs</div>
+            <div class="stat-value">Dashboards, APIs, Demos</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Stack</div>
+            <div class="stat-value">Python, Flask, HTML/CSS, JS</div>
+          </div>
+
+          <div class="hero-links">
+            <!-- Passe Links an -->
+            <a class="link" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="link" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="link" href="mailto:kontakt@example.com">E-Mail</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED PROJECTS -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-head">
+          <h2>Projekte</h2>
+          <p class="muted">Auswahl aus Dashboards, Datenvisualisierung, Games/Quizzes und Produkt-Demos.</p>
+        </div>
+
+        <div class="toolbar" role="region" aria-label="Projektfilter">
+          <div class="search">
+            <label class="sr-only" for="searchInput">Projekte durchsuchen</label>
+            <input id="searchInput" type="search" placeholder="Suchen (z. B. „Weather“, „Dashboard“, „Flask“) …" />
+          </div>
+
+          <div class="chips" id="tagChips" aria-label="Tags"></div>
+        </div>
+
+        <div class="grid" id="projectGrid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section alt" id="about">
+      <div class="container about-grid">
+        <div>
+          <h2>Über mich</h2>
+          <p class="lead">
+            Ich entwickle pragmatische Web-Anwendungen und Visualisierungen, die Daten verständlich machen.
+            Besonders gerne kombiniere ich Data-Pipelines, saubere Frontends und ein leichtgewichtiges Backend.
+          </p>
+
+          <div class="pill-row" aria-label="Skills">
+            <span class="pill">Python</span>
+            <span class="pill">Flask</span>
+            <span class="pill">Pandas</span>
+            <span class="pill">Matplotlib</span>
+            <span class="pill">APIs</span>
+            <span class="pill">GCP</span>
+          </div>
+
+          <div class="about-actions">
+            <!-- Optional: CV als PDF in /assets/cv.pdf -->
+            <!-- <a class="btn btn-secondary" href="/assets/cv.pdf" target="_blank" rel="noreferrer">CV (PDF)</a> -->
+            <a class="btn btn-ghost" href="#contact">Kontakt aufnehmen</a>
+          </div>
+        </div>
+
+        <div class="about-card">
+          <h3>Kurzprofil</h3>
+          <ul class="checklist">
+            <li>End-to-end: Idee → Prototyp → Deployment</li>
+            <li>Klare Visualisierung und UX als Priorität</li>
+            <li>Saubere Struktur: Repos, Doku, reproduzierbare Builds</li>
+          </ul>
+
+          <h3 class="mt">Was du hier findest</h3>
+          <ul class="checklist">
+            <li>Live-Demos (z. B. Dashboards/Tools)</li>
+            <li>Mini-Games und Quizzes (Browser)</li>
+            <li>Produkt-/Hardware-Vorstellungen (mit Screenshots)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="container contact-grid">
+        <div>
+          <h2>Kontakt</h2>
+          <p class="muted">
+            Wenn du Fragen zu einem Projekt hast oder eine Zusammenarbeit besprechen möchtest, melde dich gerne.
+          </p>
+
+          <div class="contact-cards">
+            <a class="card link-card" href="mailto:kontakt@example.com">
+              <div class="card-title">E-Mail</div>
+              <div class="card-sub">kontakt@example.com</div>
+            </a>
+            <a class="card link-card" href="https://github.com/" target="_blank" rel="noreferrer">
+              <div class="card-title">GitHub</div>
+              <div class="card-sub">Repos & Code</div>
+            </a>
+            <a class="card link-card" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">
+              <div class="card-title">LinkedIn</div>
+              <div class="card-sub">Profil</div>
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-note">
+          <h3>Hinweis</h3>
+          <p class="muted">
+            Diese Seite ist bewusst schlank gehalten: schnell, zugänglich, leicht zu pflegen.
+            Projekte laufen je nach Demo als separate Services unter Subdomains.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span class="muted">© <span id="year"></span> Till Müller</span>
+      <span class="muted">Built with HTML/CSS/JS</span>
+    </div>
+  </footer>
+
+  <script src="/assets/js/app.js" defer></script>
+</body>
+</html>
