@@ -9,8 +9,8 @@
   const services = [
     {
       title: "PLZ zu Koordinaten",
-      img: "/assets/img/services/plz-service.png",
-      href: "https://plz-koordinaten-service-566647089956.europe-west1.run.app"
+      img: "/assets/img/services/plz.png",
+      href: "plz.data-tales.dev"
     },
     {
       title: "Cookbook",
@@ -18,9 +18,14 @@
       href: "/cookbook"
     },
     {
-      title: "Weiterer Dienst",
-      img: "/assets/img/services/placeholder.png",
-      href: "#"
+      title: "Paw Patrole Wiki",
+      img: "/assets/img/services/paw-wiki.png",
+      href: "paw-wiki.data-tales.dev"
+    },
+    {
+      title: "Paw Patrole Quiz",
+      img: "/assets/img/services/paw-quiz.png",
+      href: "paw-quiz.data-tales.dev"
     }
   ];
 
