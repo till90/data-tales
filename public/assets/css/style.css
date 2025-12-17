@@ -294,3 +294,114 @@ h2{margin:0; font-size:26px}
   position:absolute; width:1px; height:1px; padding:0; margin:-1px;
   overflow:hidden; clip:rect(0,0,0,0); border:0;
 }
+
+/* --- Slideshow --- */
+.slideshow-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+.slideshow {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+}
+.slideshow > * {
+  flex-shrink: 0;
+  width: 100%;
+  padding: 0 8px; /* Kleiner Abstand zwischen den Slides */
+}
+@media (min-width: 640px) {
+  .slideshow > * {
+    width: 50%;
+  }
+}
+@media (min-width: 980px) {
+  .slideshow > * {
+    width: 33.333%;
+  }
+}
+
+.slideshow-nav {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 18px;
+}
+.nav-btn {
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--text);
+  width: 40px;
+  height: 40px;
+  border-radius: 99px;
+  cursor: pointer;
+  font-size: 20px;
+}
+.nav-btn:hover {
+  background: var(--bg2);
+  border-color: var(--primary);
+}
+
+/* --- Service Card --- */
+.service-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+}
+.service-card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: var(--radius);
+  margin-bottom: 12px;
+  border: 1px solid var(--border);
+}
+
+
+/* Dropdown – minimal, nutzt deine Variablen + .card/.btn Styles */
+.nav-dropdown{
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav-dropbtn{
+  /* nutzt .btn/.btn-ghost; nur Layout-Feinschliff */
+  padding: 10px 12px;
+  gap: 8px;
+}
+
+.nav-caret{
+  font-size: .9em;
+  opacity: .85;
+}
+
+.nav-menu{
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  min-width: 240px;
+  padding: 10px;
+  z-index: 60;
+
+  /* .card bringt bereits Border/Radius/Shadow; wir ergänzen nur Hintergrund-Konsistenz */
+  background: rgba(17, 26, 46, .92);
+  backdrop-filter: blur(10px);
+}
+
+[data-theme="light"] .nav-menu{
+  background: rgba(255, 255, 255, .96);
+}
+
+.nav-menu a{
+  display: block;
+  padding: 10px 10px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 650;
+}
+
+.nav-menu a:hover{
+  background: rgba(110,168,254,.12);
+}

@@ -2,11 +2,28 @@
   const root = document.documentElement;
   const themeToggle = document.getElementById("themeToggle");
   const yearEl = document.getElementById("year");
-  const grid = document.getElementById("projectGrid");
-  const chipWrap = document.getElementById("tagChips");
-  const searchInput = document.getElementById("searchInput");
+  const servicesSlider = document.getElementById("servicesSlider");
+  const projectSlider = document.getElementById("projectSlider");
 
-  // --- PROJECT DATA (hier pflegst du später deine echten Links) ---
+  // --- DATA ---
+  const services = [
+    {
+      title: "PLZ zu Koordinaten",
+      img: "/assets/img/services/plz-service.png",
+      href: "https://plz-koordinaten-service-566647089956.europe-west1.run.app"
+    },
+    {
+      title: "Cookbook",
+      img: "/assets/img/services/cookbook.png",
+      href: "/cookbook"
+    },
+    {
+      title: "Weiterer Dienst",
+      img: "/assets/img/services/placeholder.png",
+      href: "#"
+    }
+  ];
+
   const projects = [
     {
       title: "Weather Tool – Standortbasierte Abfragen",
@@ -63,104 +80,139 @@
     themeToggle.addEventListener("click", toggleTheme);
   }
 
-  // --- FILTERING ---
-  const allTags = Array.from(new Set(projects.flatMap(p => p.tags))).sort((a, b) => a.localeCompare(b));
-  let activeTag = "all";
-  let query = "";
+  // --- SLIDESHOW LOGIC ---
+  function createSlideshow(sliderEl, data, cardRenderer) {
+    if (!sliderEl) return;
 
-  function makeChip(label) {
-    const btn = document.createElement("button");
-    btn.className = "chip";
-    btn.type = "button";
-    btn.textContent = label;
-    btn.setAttribute("aria-pressed", label === activeTag ? "true" : "false");
-    btn.addEventListener("click", () => {
-      activeTag = label;
-      renderChips();
-      renderProjects();
-    });
-    return btn;
+    let currentIndex = 0;
+    let touchStartX = 0;
+
+    const wrapper = sliderEl.parentElement;
+    const prevBtn = wrapper.querySelector(".nav-btn.prev");
+    const nextBtn = wrapper.querySelector(".nav-btn.next");
+
+    function render() {
+      sliderEl.innerHTML = "";
+      data.forEach(item => sliderEl.appendChild(cardRenderer(item)));
+      updateSlider();
+    }
+
+    function updateSlider() {
+      const offset = -currentIndex * 100;
+      sliderEl.style.transform = `translateX(${offset}%)`;
+    }
+
+    function next() {
+      currentIndex = (currentIndex + 1) % data.length;
+      updateSlider();
+    }
+
+    function prev() {
+      currentIndex = (currentIndex - 1 + data.length) % data.length;
+      updateSlider();
+    }
+
+    function handleTouchStart(e) {
+      touchStartX = e.touches[0].clientX;
+    }
+
+    function handleTouchMove(e) {
+      if (touchStartX === 0) return;
+      const touchEndX = e.touches[0].clientX;
+      const diff = touchStartX - touchEndX;
+      if (diff > 50) { // Swipe left
+        next();
+        touchStartX = 0;
+      } else if (diff < -50) { // Swipe right
+        prev();
+        touchStartX = 0;
+      }
+    }
+
+    prevBtn.addEventListener("click", prev);
+    nextBtn.addEventListener("click", next);
+    sliderEl.addEventListener("touchstart", handleTouchStart, { passive: true });
+    sliderEl.addEventListener("touchmove", handleTouchMove, { passive: true });
+
+    render();
   }
 
-  function renderChips() {
-    chipWrap.innerHTML = "";
-    chipWrap.appendChild(makeChip("all"));
-    allTags.forEach(t => chipWrap.appendChild(makeChip(t)));
-  }
-
-  function matches(p) {
-    const tagOk = activeTag === "all" || p.tags.includes(activeTag);
-    if (!tagOk) return false;
-
-    const q = query.trim().toLowerCase();
-    if (!q) return true;
-
-    const hay = (p.title + " " + p.desc + " " + p.tags.join(" ")).toLowerCase();
-    return hay.includes(q);
-  }
-
-  function projectCard(p) {
-    const el = document.createElement("article");
-    el.className = "card";
-
-    const title = document.createElement("h3");
-    title.className = "card-title";
-    title.textContent = p.title;
-
-    const desc = document.createElement("p");
-    desc.className = "card-desc";
-    desc.textContent = p.desc;
-
-    const tags = document.createElement("div");
-    tags.className = "card-tags";
-    p.tags.forEach(t => {
-      const s = document.createElement("span");
-      s.className = "tag";
-      s.textContent = t;
-      tags.appendChild(s);
-    });
-
-    const links = document.createElement("div");
-    links.className = "card-links";
-    (p.links || []).forEach(l => {
-      const a = document.createElement("a");
-      a.href = l.href;
-      a.target = "_blank";
-      a.rel = "noreferrer";
-      a.textContent = l.label;
-      links.appendChild(a);
-    });
-
-    el.appendChild(title);
-    el.appendChild(desc);
-    el.appendChild(tags);
-    el.appendChild(links);
+  // --- RENDER FUNCTIONS ---
+  function renderServiceCard(item) {
+    const el = document.createElement("a");
+    el.className = "card service-card";
+    el.href = item.href;
+    el.innerHTML = `
+      <img src="${item.img}" alt="${item.title}" loading="lazy">
+      <div class="card-title">${item.title}</div>
+    `;
     return el;
   }
 
-  function renderProjects() {
-    grid.innerHTML = "";
-    const filtered = projects.filter(matches);
-    if (!filtered.length) {
-      const empty = document.createElement("div");
-      empty.className = "card";
-      empty.innerHTML = `<h3 class="card-title">Keine Treffer</h3><p class="card-desc">Passe Suche oder Tag-Filter an.</p>`;
-      grid.appendChild(empty);
-      return;
-    }
-    filtered.forEach(p => grid.appendChild(projectCard(p)));
+  function renderProjectCard(item) {
+    const el = document.createElement("article");
+    el.className = "card";
+    el.innerHTML = `
+      <h3 class="card-title">${item.title}</h3>
+      <p class="card-desc">${item.desc}</p>
+      <div class="card-tags">
+        ${item.tags.map(t => `<span class="tag">${t}</span>`).join("")}
+      </div>
+      <div class="card-links">
+        ${item.links.map(l => `<a href="${l.href}" target="_blank" rel="noreferrer">${l.label}</a>`).join("")}
+      </div>
+    `;
+    return el;
   }
 
-  if (searchInput) {
-    searchInput.addEventListener("input", (e) => {
-      query = e.target.value || "";
-      renderProjects();
-    });
-  }
+  // --- INIT ---
+  if (servicesSlider) createSlideshow(servicesSlider, services, renderServiceCard);
+  if (projectSlider) createSlideshow(projectSlider, projects, renderProjectCard);
 
   // Footer year
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+})();
 
-  renderChips();
-  renderProjects();
+(function(){
+  const dd = document.querySelector('[data-dropdown]');
+  if(!dd) return;
+
+  const btn = dd.querySelector('.nav-dropbtn');
+  const menu = dd.querySelector('.nav-menu');
+
+  function setOpen(isOpen){
+    btn.setAttribute('aria-expanded', String(isOpen));
+    if(isOpen){
+      menu.hidden = false;
+      dd.classList.add('open');
+    }else{
+      menu.hidden = true;
+      dd.classList.remove('open');
+    }
+  }
+
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const isOpen = btn.getAttribute('aria-expanded') === 'true';
+    setOpen(!isOpen);
+  });
+
+  document.addEventListener('click', (e) => {
+    if(!dd.contains(e.target)) setOpen(false);
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape') setOpen(false);
+  });
+
+  // Wenn per Tab aus dem Dropdown rausnavigiert wird: schließen
+  dd.addEventListener('focusout', () => {
+    requestAnimationFrame(() => {
+      if(!dd.contains(document.activeElement)) setOpen(false);
+    });
+  });
+
+  // Initial geschlossen
+  setOpen(false);
 })();

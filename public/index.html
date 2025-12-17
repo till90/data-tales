@@ -30,13 +30,16 @@
       <nav class="nav" aria-label="Hauptnavigation">
         <a href="#projects">Projekte</a>
 
-        <div class="nav-dropdown">
-          <button class="nav-dropbtn" type="button" aria-haspopup="true" aria-expanded="false">
-            Dienste
-            <span class="nav-caret" aria-hidden="true">▾</span>
+        <div class="nav-dropdown" data-dropdown>
+          <button class="btn btn-ghost nav-dropbtn"
+                  type="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  aria-controls="servicesMenu">
+            Dienste <span class="nav-caret" aria-hidden="true">▾</span>
           </button>
 
-          <div class="nav-menu" role="menu">
+          <div id="servicesMenu" class="card nav-menu" role="menu" hidden>
             <a role="menuitem" href="https://plz.data-tales.dev/">PLZ → Koordinaten</a>
             <a role="menuitem" href="https://paw-wiki.data-tales.dev/">Paw Patrole Wiki</a>
             <a role="menuitem" href="https://paw-quiz.data-tales.dev/">Paw Patrole Quiz</a>
@@ -105,7 +108,27 @@
       </div>
     </section>
 
-    <!-- FEATURED PROJECTS -->
+    <!-- SERVICES SLIDESHOW -->
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-head">
+          <h2>Dienste</h2>
+          <p class="muted">Eine Auswahl an wiederverwendbaren Tools und APIs.</p>
+        </div>
+
+        <div class="slideshow-wrapper">
+          <div class="slideshow" id="servicesSlider">
+            <!-- Service slides will be injected here -->
+          </div>
+          <div class="slideshow-nav">
+            <button class="nav-btn prev" aria-label="Vorheriger Dienst"><</button>
+            <button class="nav-btn next" aria-label="Nächster Dienst">></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS SLIDESHOW -->
     <section class="section" id="projects">
       <div class="container">
         <div class="section-head">
@@ -113,16 +136,15 @@
           <p class="muted">Auswahl aus Dashboards, Datenvisualisierung, Games/Quizzes und Produkt-Demos.</p>
         </div>
 
-        <div class="toolbar" role="region" aria-label="Projektfilter">
-          <div class="search">
-            <label class="sr-only" for="searchInput">Projekte durchsuchen</label>
-            <input id="searchInput" type="search" placeholder="Suchen (z. B. „Weather“, „Dashboard“, „Flask“) …" />
+        <div class="slideshow-wrapper">
+          <div class="slideshow" id="projectSlider">
+            <!-- Project slides will be injected here -->
           </div>
-
-          <div class="chips" id="tagChips" aria-label="Tags"></div>
+          <div class="slideshow-nav">
+            <button class="nav-btn prev" aria-label="Vorheriges Projekt"><</button>
+            <button class="nav-btn next" aria-label="Nächstes Projekt">></button>
+          </div>
         </div>
-
-        <div class="grid" id="projectGrid" aria-live="polite"></div>
       </div>
     </section>
 
