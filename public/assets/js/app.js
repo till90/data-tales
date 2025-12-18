@@ -45,7 +45,8 @@
      desc: "Ein innovatives System zur automatischen Vogel-Erkennung auf dem Raspberry Pi, das offline arbeitet. Es nutzt BirdNET/TFLite-Modelle, um Vogelstimmen in Echtzeit zu identifizieren – ideal für den Einsatz in abgelegenen Gebieten ohne Internetverbindung.",
      tags: ["Raspberry Pi", "Python", "TFLite", "BirdNET", "SQLite", "Web-Dashboard"],
      links: [
-       { label: "Website", href: "https://sonitrace.com/" }
+       { label: "sonitrace.com", href: "https://sonitrace.com/" },
+       { label: "Dashboard Demo", href: "https://flybi-demo.data-tales.dev/" }
      ],
      images: [
        "/assets/img/projects/flybi-1.png",

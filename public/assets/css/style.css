@@ -317,12 +317,12 @@ h2{margin:0; font-size:26px}
 }
 @media (min-width: 640px) {
   .slideshow > * {
-    width: calc((var(--container) / 2) - (var(--gap) / 2));
+    width: calc(100% / 2 - var(--gap) * 1 / 2);
   }
 }
 @media (min-width: 980px) {
   .slideshow > * {
-    width: calc((var(--container) / 3) - (var(--gap) * 2 / 3));
+    width: calc(100% / 3 - var(--gap) * 2 / 3);
   }
 }
 
