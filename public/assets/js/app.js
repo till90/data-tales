@@ -31,6 +31,11 @@
       title: "Paw Patrole Quiz",
       img: "/assets/img/services/paw-quiz.png",
       href: "https://paw-quiz.data-tales.dev"
+    },
+    {
+      title: "Wurm Attacke 3000",
+      img: "/assets/img/services/worm-attack.png",
+      href: "https://worm-attack-3000.data-tales.dev"
     }
   ];
 
