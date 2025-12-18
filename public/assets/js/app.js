@@ -137,13 +137,43 @@
     }
 
     function next() {
-      currentIndex = (currentIndex + 1) % data.length;
-      updateSlider();
+      const visibleCards = getVisibleCards();
+      if (currentIndex < data.length - visibleCards) {
+        currentIndex++;
+        updateSlider();
+      }
     }
 
     function prev() {
-      currentIndex = (currentIndex - 1 + data.length) % data.length;
-      updateSlider();
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateSlider();
+      }
+    }
+
+    function getVisibleCards() {
+      if (window.innerWidth >= 980) {
+        return 3;
+      } else if (window.innerWidth >= 640) {
+        return 2;
+      } else {
+        return 1;
+      }
+    }
+
+    function updateSlider() {
+      const visibleCards = getVisibleCards();
+      const maxIndex = Math.max(0, data.length - visibleCards);
+      currentIndex = Math.min(currentIndex, maxIndex);
+      
+      const gap = parseInt(getComputedStyle(sliderEl).gap) || 18;
+      const cardWidth = sliderEl.firstElementChild.offsetWidth;
+      const offset = -currentIndex * (cardWidth + gap);
+      
+      sliderEl.style.transform = `translateX(${offset}px)`;
+
+      prevBtn.disabled = currentIndex === 0;
+      nextBtn.disabled = currentIndex === maxIndex;
     }
 
     function handleTouchStart(e) {
@@ -167,6 +197,10 @@
     nextBtn.addEventListener("click", next);
     sliderEl.addEventListener("touchstart", handleTouchStart, { passive: true });
     sliderEl.addEventListener("touchmove", handleTouchMove, { passive: true });
+
+    window.addEventListener("resize", () => {
+      updateSlider();
+    });
 
     render();
   }

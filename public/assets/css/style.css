@@ -260,6 +260,11 @@ h2{margin:0; font-size:26px}
 }
 [data-theme="light"] .pill{ background: rgba(17,24,39,.03); }
 
+.card .pill{
+  font-size: 12px;
+  padding: 4px 8px;
+}
+
 .about-card{padding:18px}
 .checklist{margin:10px 0 0; padding:0; list-style:none; color:var(--muted); font-weight:650}
 .checklist li{padding-left:22px; position:relative; margin:10px 0}
@@ -312,12 +317,12 @@ h2{margin:0; font-size:26px}
 }
 @media (min-width: 640px) {
   .slideshow > * {
-    width: 50%;
+    width: calc((var(--container) / 2) - (var(--gap) / 2));
   }
 }
 @media (min-width: 980px) {
   .slideshow > * {
-    width: 33.333%;
+    width: calc((var(--container) / 3) - (var(--gap) * 2 / 3));
   }
 }
 
