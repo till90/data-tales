@@ -188,6 +188,19 @@
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 })();
 
+window.addEventListener('load', () => {
+   const sliders = document.querySelectorAll('.project-img-slider');
+   sliders.forEach(slider => {
+     const images = JSON.parse(slider.dataset.images);
+     let currentIndex = 0;
+     setInterval(() => {
+       slider.style.backgroundImage = `url(${images[currentIndex]})`;
+       currentIndex = (currentIndex + 1) % images.length;
+     }, 5000);
+     slider.style.backgroundImage = `url(${images[0]})`;
+   });
+ });
+
 (function(){
   const dd = document.querySelector('[data-dropdown]');
   if(!dd) return;
