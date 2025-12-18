@@ -13,6 +13,11 @@
       href: "https://plz.data-tales.dev"
     },
     {
+      title: "WMS/WFS Server Viewer",
+      img: "/assets/img/services/wms.png",
+      href: "https://wms-wfs-sources.data-tales.dev"
+    },
+    {
       title: "OSM Baumbestand zählen",
       img: "/assets/img/services/tree-locator.png",
       href: "https://tree-locator.data-tales.dev"
