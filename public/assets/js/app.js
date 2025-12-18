@@ -13,6 +13,11 @@
       href: "https://plz.data-tales.dev"
     },
     {
+      title: "OSM Baumbetand zählen",
+      img: "/assets/img/services/tree-locator.png",
+      href: "https://tree-locator.data-tales.dev"
+    },
+    {
       title: "Cookbook",
       img: "/assets/img/services/cookbook.png",
       href: "/cookbook"
