@@ -10,7 +10,7 @@
     {
       title: "PLZ zu Koordinaten",
       img: "/assets/img/services/plz.png",
-      href: "plz.data-tales.dev"
+      href: "https://plz.data-tales.dev"
     },
     {
       title: "Cookbook",
@@ -20,12 +20,12 @@
     {
       title: "Paw Patrole Wiki",
       img: "/assets/img/services/paw-wiki.png",
-      href: "paw-wiki.data-tales.dev"
+      href: "https://paw-wiki.data-tales.dev"
     },
     {
       title: "Paw Patrole Quiz",
       img: "/assets/img/services/paw-quiz.png",
-      href: "paw-quiz.data-tales.dev"
+      href: "https://paw-quiz.data-tales.dev"
     }
   ];
 
