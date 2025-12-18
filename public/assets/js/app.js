@@ -57,11 +57,6 @@
        "/assets/img/projects/flybi-7.png",
        "/assets/img/projects/flybi-8.png",
        "/assets/img/projects/flybi-9.png",
-       "/assets/img/projects/flybi-10.png",
-       "/assets/img/projects/flybi-11.png",
-       "/assets/img/projects/flybi-12.png",
-       "/assets/img/projects/flybi-13.png",
-       "/assets/img/projects/flybi-14.png"
      ]
    },
    {
