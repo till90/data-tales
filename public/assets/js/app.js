@@ -40,42 +40,58 @@
   ];
 
   const projects = [
-    {
-      title: "Weather Tool – Standortbasierte Abfragen",
-      desc: "Kleines Web-Tool: Userinput → Wetterinfos/Visualisierungen. Fokus auf saubere UI und schnelle Antwortzeiten.",
-      tags: ["python", "flask", "api", "data"],
-      links: [
-        { label: "Demo", href: "https://example.com" },
-        { label: "Code", href: "https://github.com/" }
-      ]
-    },
-    {
-      title: "Dashboard – Datenvisualisierung",
-      desc: "Interaktives Dashboard für Zeitreihen/Statistiken. Exportfähige Charts und klare Storytelling-Struktur.",
-      tags: ["dashboard", "python", "data", "viz"],
-      links: [
-        { label: "Demo", href: "https://example.com" },
-        { label: "Case Study", href: "https://example.com" }
-      ]
-    },
-    {
-      title: "Browser Quiz",
-      desc: "Mini-Quiz mit Score, Progress und responsivem Layout. Ideal als leichtgewichtige Demo für UX und State-Handling.",
-      tags: ["quiz", "frontend", "js"],
-      links: [
-        { label: "Demo", href: "https://example.com" },
-        { label: "Code", href: "https://github.com/" }
-      ]
-    },
-    {
-      title: "Geräte-/Produktvorstellung",
-      desc: "Landing + Doku für ein selbst entwickeltes Gerät inkl. Screenshots, Features, Architektur und Roadmap.",
-      tags: ["hardware", "product", "docs"],
-      links: [
-        { label: "Page", href: "https://example.com" }
-      ]
-    }
-  ];
+   {
+     title: "FlyBi/SoniTrace: Offline Vogel-Erkennung",
+     desc: "Ein innovatives System zur automatischen Vogel-Erkennung auf dem Raspberry Pi, das offline arbeitet. Es nutzt BirdNET/TFLite-Modelle, um Vogelstimmen in Echtzeit zu identifizieren – ideal für den Einsatz in abgelegenen Gebieten ohne Internetverbindung.",
+     tags: ["Raspberry Pi", "Python", "TFLite", "BirdNET", "SQLite", "Web-Dashboard"],
+     links: [
+       { label: "Website", href: "https://sonitrace.com/" }
+     ],
+     images: [
+       "/assets/img/projects/flybi-1.png",
+       "/assets/img/projects/flybi-2.png",
+       "/assets/img/projects/flybi-3.png",
+       "/assets/img/projects/flybi-4.png",
+       "/assets/img/projects/flybi-5.png",
+       "/assets/img/projects/flybi-6.png",
+       "/assets/img/projects/flybi-7.png",
+       "/assets/img/projects/flybi-8.png",
+       "/assets/img/projects/flybi-9.png",
+       "/assets/img/projects/flybi-10.png",
+       "/assets/img/projects/flybi-11.png",
+       "/assets/img/projects/flybi-12.png",
+       "/assets/img/projects/flybi-13.png",
+       "/assets/img/projects/flybi-14.png"
+     ]
+   },
+   {
+     title: "Weather Tool – Standortbasierte Abfragen",
+     desc: "Kleines Web-Tool: Userinput → Wetterinfos/Visualisierungen. Fokus auf saubere UI und schnelle Antwortzeiten.",
+     tags: ["python", "flask", "api", "data"],
+     links: [
+       { label: "Demo", href: "https://example.com" },
+       { label: "Code", href: "https://github.com/" }
+     ]
+   },
+   {
+     title: "Dashboard – Datenvisualisierung",
+     desc: "Interaktives Dashboard für Zeitreihen/Statistiken. Exportfähige Charts und klare Storytelling-Struktur.",
+     tags: ["dashboard", "python", "data", "viz"],
+     links: [
+       { label: "Demo", href: "https://example.com" },
+       { label: "Case Study", href: "https://example.com" }
+     ]
+   },
+   {
+     title: "Browser Quiz",
+     desc: "Mini-Quiz mit Score, Progress und responsivem Layout. Ideal als leichtgewichtige Demo für UX und State-Handling.",
+     tags: ["quiz", "frontend", "js"],
+     links: [
+       { label: "Demo", href: "https://example.com" },
+       { label: "Code", href: "https://github.com/" }
+     ]
+   }
+ ];
 
   // --- THEME ---
   const storedTheme = localStorage.getItem("theme");
@@ -108,7 +124,10 @@
 
     function render() {
       sliderEl.innerHTML = "";
-      data.forEach(item => sliderEl.appendChild(cardRenderer(item)));
+      data.forEach(item => {
+       const card = cardRenderer(item);
+       sliderEl.appendChild(card);
+     });
       updateSlider();
     }
 
@@ -165,20 +184,35 @@
   }
 
   function renderProjectCard(item) {
-    const el = document.createElement("article");
-    el.className = "card";
-    el.innerHTML = `
-      <h3 class="card-title">${item.title}</h3>
-      <p class="card-desc">${item.desc}</p>
-      <div class="card-tags">
-        ${item.tags.map(t => `<span class="tag">${t}</span>`).join("")}
-      </div>
-      <div class="card-links">
-        ${item.links.map(l => `<a href="${l.href}" target="_blank" rel="noreferrer">${l.label}</a>`).join("")}
-      </div>
-    `;
-    return el;
-  }
+   const el = document.createElement("div");
+   el.className = "slide";
+   
+   let imageSlider = "";
+   if(item.images && item.images.length > 0){
+       imageSlider = `
+       <div class="card-img">
+           <div class="project-img-slider" data-images='${JSON.stringify(item.images)}'></div>
+       </div>
+       `;
+   }
+
+   el.innerHTML = `
+       <div class="card project-card">
+           ${imageSlider}
+           <div class="card-content">
+               <h3>${item.title}</h3>
+               <p>${item.desc}</p>
+               <div class="pill-row" aria-label="Technologien">
+                   ${item.tags.map(tag => `<span class="pill">${tag}</span>`).join('')}
+               </div>
+               <div class="card-actions">
+                   ${item.links.map(link => `<a class="btn btn-secondary" href="${link.href}" target="_blank" rel="noreferrer">${link.label}</a>`).join('')}
+               </div>
+           </div>
+       </div>
+   `;
+   return el;
+}
 
   // --- INIT ---
   if (servicesSlider) createSlideshow(servicesSlider, services, renderServiceCard);
