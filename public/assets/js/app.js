@@ -13,7 +13,7 @@
       href: "https://plz.data-tales.dev"
     },
     {
-      title: "OSM Baumbetand zählen",
+      title: "OSM Baumbestand zählen",
       img: "/assets/img/services/tree-locator.png",
       href: "https://tree-locator.data-tales.dev"
     },

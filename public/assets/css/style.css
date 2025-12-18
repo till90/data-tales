@@ -366,9 +366,28 @@ h2{margin:0; font-size:26px}
 }
 
 .nav-dropbtn{
-  /* nutzt .btn/.btn-ghost; nur Layout-Feinschliff */
-  padding: 10px 12px;
-  gap: 8px;
+  /* Stile zurücksetzen, um .btn zu überschreiben und an .nav a anzupassen */
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-family: inherit;
+  
+  /* Stile von .nav a übernehmen */
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 600;
+  
+  /* Layout-Anpassung, falls nötig */
+  display: inline-flex;
+  align-items: center;
+  gap: 8px; /* Abstand für den Pfeil */
+  cursor: pointer;
+  height: 100%;
+}
+.nav-dropbtn:hover{
+  color: var(--text);
+  transform: none;
 }
 
 .nav-caret{
