@@ -70,8 +70,8 @@
      desc: "Kleines Web-Tool: Userinput → Wetterinfos/Visualisierungen. Fokus auf saubere UI und schnelle Antwortzeiten.",
      tags: ["python", "flask", "api", "data"],
      links: [
-       { label: "Demo", href: "https://example.com" },
-       { label: "Code", href: "https://github.com/" }
+       { label: "Coming soon...", href: "/" },
+       { label: "Code", href: "/" }
      ]
    },
    {
@@ -79,8 +79,8 @@
      desc: "Interaktives Dashboard für Zeitreihen/Statistiken. Exportfähige Charts und klare Storytelling-Struktur.",
      tags: ["dashboard", "python", "data", "viz"],
      links: [
-       { label: "Demo", href: "https://example.com" },
-       { label: "Case Study", href: "https://example.com" }
+       { label: "Coming soon...", href: "/" },
+       { label: "Case Study", href: "/" }
      ]
    },
    {
@@ -88,7 +88,7 @@
      desc: "Mini-Quiz mit Score, Progress und responsivem Layout. Ideal als leichtgewichtige Demo für UX und State-Handling.",
      tags: ["quiz", "frontend", "js"],
      links: [
-       { label: "Demo", href: "https://example.com" },
+       { label: "Coming soon...", href: "/" },
        { label: "Code", href: "https://github.com/" }
      ]
    }
