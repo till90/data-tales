@@ -50,16 +50,20 @@
           </div>
         </div>
 
-        <a href="#about">Über mich</a>
-        <a href="#contact">Kontakt</a>
       </nav>
 
-      <div class="header-actions">
-        <button class="btn btn-ghost" id="themeToggle" type="button" aria-label="Theme umschalten">
-          <span aria-hidden="true">☾</span>
-          <span class="sr-only">Theme umschalten</span>
-        </button>
+    <div class="header-actions">
+      <div class="header-note" aria-label="Feedback Kontakt">
+        <span class="header-note__label">Änderung / Kritik:</span>
+        <a class="header-note__mail" href="mailto:infos@data-tales.dev">infos@data-tales.dev</a>
       </div>
+
+      <a class="btn btn-primary" href="{{ landing_url }}#contact">Kontakt</a>
+      <button class="btn btn-ghost" id="themeToggle" type="button" aria-label="Theme umschalten">
+        <span aria-hidden="true" id="themeIcon">☾</span>
+        <span class="sr-only">Theme umschalten</span>
+      </button>
+    </div>
     </div>
   </header>
 

@@ -13,7 +13,7 @@
       href: "https://plz.data-tales.dev"
     },
     {
-      title: "WMS/WFS Server Viewer",
+      title: "WMS/WFS Information Tool",
       img: "/assets/img/services/wms.png",
       href: "https://wms-wfs-sources.data-tales.dev"
     },
