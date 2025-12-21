@@ -28,12 +28,12 @@
       href: "/cookbook"
     },
     {
-      title: "Paw Patrole Wiki",
+      title: "Paw Wiki",
       img: "/assets/img/services/paw-wiki.png",
       href: "https://paw-wiki.data-tales.dev"
     },
     {
-      title: "Paw Patrole Quiz",
+      title: "Paw Quiz",
       img: "/assets/img/services/paw-quiz.png",
       href: "https://paw-quiz.data-tales.dev"
     },
