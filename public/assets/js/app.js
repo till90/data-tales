@@ -315,6 +315,9 @@ window.addEventListener('load', () => {
     });
   });
 
+  menu.addEventListener('click', (e) => {
+    if (e.target.closest('a')) setOpen(false);
+  });
   // Initial geschlossen
   setOpen(false);
 })();
