@@ -27,19 +27,24 @@
         <span class="brand-text">data-tales</span>
       </a>
 
-      <div class="header-actions">
-        <nav class="nav" aria-label="Hauptnavigation">
-          <div class="nav-dropdown" data-dropdown>
-            <button class="btn btn-ghost nav-dropbtn header-iconbtn"
-                    type="button"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                    aria-controls="mainMenu"
-                    aria-label="Menü öffnen">
-              <span class="menu-icon" aria-hidden="true">
-                <span></span><span></span><span></span>
-              </span>
-            </button>
+  <div class="header-actions">
+    <button class="btn btn-ghost header-iconbtn" id="themeToggle" type="button" aria-label="Theme umschalten">
+      <span aria-hidden="true" id="themeIcon">☾</span>
+      <span class="sr-only">Theme umschalten</span>
+    </button>
+
+    <nav class="nav" aria-label="Hauptnavigation">
+      <div class="nav-dropdown" data-dropdown>
+        <button class="btn btn-ghost nav-dropbtn header-iconbtn"
+                type="button"
+                aria-haspopup="true"
+                aria-expanded="false"
+                aria-controls="mainMenu"
+                aria-label="Menü öffnen">
+          <span class="menu-icon" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </span>
+        </button>
 
             <div id="mainMenu" class="card nav-menu" hidden>
               <div class="nav-section" role="none">
