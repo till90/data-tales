@@ -65,8 +65,7 @@ body{
 
 .header-inner{
   display:flex; align-items:center; justify-content:space-between;
-  padding:14px 0;
-  gap:14px;
+  padding:7px 0;
 }
 .brand{display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--text); font-weight:700}
 .brand-mark{
@@ -74,8 +73,11 @@ body{
   background: linear-gradient(135deg, var(--primary), var(--primary2));
   box-shadow: 0 10px 25px rgba(110,168,254,.25);
 }
-.nav{display:flex; gap:16px; flex-wrap:wrap}
-.nav a{color:var(--muted); text-decoration:none; font-weight:600}
+.nav{
+font-size: x-large  ;
+    }
+
+.nav a{color:var(--muted); text-decoration:none}
 .nav a:hover{color:var(--text)}
 .header-actions{display:flex; gap:10px; align-items:center}
 .header-actions .btn{ font-size: 18px; }
@@ -428,11 +430,11 @@ h2{margin:0; font-size:26px}
   padding: 0;
   margin: 0;
   font-family: inherit;
+  font-size: x-large  ;
   
   /* Stile von .nav a übernehmen */
   color: var(--muted);
   text-decoration: none;
-  font-weight: 600;
   
   /* Layout-Anpassung, falls nötig */
   display: inline-flex;
@@ -447,7 +449,7 @@ h2{margin:0; font-size:26px}
 }
 
 .nav-caret{
-  font-size: .9em;
+  font-size: x-large;
   opacity: .85;
 }
 
