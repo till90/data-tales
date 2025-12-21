@@ -56,10 +56,16 @@ body{
 .skip-link:focus{left:10px; outline:2px solid var(--focus)}
 
 .site-header{
-  position:fixed; top:0; z-index:20;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;     /* oder: inset: 0 0 auto 0; */
+  width: 100%;
+  z-index: 20;
+
   backdrop-filter: blur(10px);
   background: rgba(10, 14, 24, .55);
-  border-bottom:1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 [data-theme="light"] .site-header{ background: rgba(246,247,251,.75); }
 
@@ -193,7 +199,11 @@ h1{margin:0 0 12px; font-size:42px; line-height:1.1}
 
 .section{padding:42px 0}
 .section.alt{
-  background: linear-gradient(180deg, transparent, rgba(255,255,255,.03), transparent);
+  background: radial-gradient(
+    1200px 600px at 50% 45%,
+    rgba(110,168,254,.10),
+    transparent 65%
+  );
 }
 [data-theme="light"] .section.alt{
   background: linear-gradient(180deg, transparent, rgba(17,24,39,.03), transparent);
