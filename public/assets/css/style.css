@@ -65,7 +65,6 @@ body{
 
 .header-inner{
   display:flex; align-items:center; justify-content:space-between;
-  padding:7px 0;
 }
 .brand{display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--text); font-weight:700}
 .brand-mark{
