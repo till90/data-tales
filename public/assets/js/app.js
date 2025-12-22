@@ -18,6 +18,11 @@
       href: "https://wms-wfs-sources.data-tales.dev"
     },
     {
+      title: "DOP20 Viewer/Downloader",
+      img: "/assets/img/services/fl-ortho.png",
+      href: "https://fl-ortho.data-tales.dev"
+    },
+    {
       title: "OSM Baumbestand zählen",
       img: "/assets/img/services/tree-locator.png",
       href: "https://tree-locator.data-tales.dev"
